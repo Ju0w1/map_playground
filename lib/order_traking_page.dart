@@ -24,9 +24,9 @@ class OrderTrackingPageState extends State<OrderTrackingPage> {
   List<LatLng> polylineCoordinates = [];
   LocationData? currentLocation;
 
-  void getCurrentLocation() {
+  void getCurrentLocation() async {
     Location location = Location();
-    location.getLocation().then((location) {
+     location.getLocation().then((location) {
       currentLocation = location;
     });
   }
@@ -68,7 +68,7 @@ class OrderTrackingPageState extends State<OrderTrackingPage> {
         ),
       ),
       body: currentLocation == null
-          ? Center(
+          ? const Center(
               child: Text("Cargando..."),
             )
           : Center(
